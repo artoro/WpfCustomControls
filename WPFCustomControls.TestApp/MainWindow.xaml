@@ -18,18 +18,25 @@
 
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button x:Name="ClassicButton" Margin="10" Content="Classic Button"
+                    Click="Button_Click" />
+            
             <!-- Kontrolka z domyślnym stylem -->
-            <custom:StylableControl Content="Default Style" Width="200" Height="40"/>
+            <custom:StylableControl x:Name="DefaultStyle"
+                                    MouseDown="Button_Click"
+                                    Content="Default Style" Width="200" Height="40"/>
 
             <!-- Kontrolka z niestandardowym stylem -->
-            <custom:StylableControl
-                Style="{StaticResource PrimaryButtonStyle}"
-                Content="Custom Style"
-                Width="200"
-                Height="40"/>
+            <custom:StylableControl x:Name="PrimaryStyle"
+                                    MouseDown="Button_Click"
+                                    Style="{StaticResource PrimaryButtonStyle}"
+                                    Content="Custom Style"
+                                    Width="200"
+                                    Height="40"/>
 
             <!-- Kontrolka ze stanami -->
-            <custom:StylableControl 
+            <custom:StylableControl x:Name="StylableControl"
+                MouseDown="Button_Click"
                 Content="Test" 
                 Width="200" 
                 Height="40">
