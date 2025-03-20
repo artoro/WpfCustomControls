@@ -7,8 +7,11 @@
         xmlns:custom="clr-namespace:WpfCustomControls;assembly=WpfCustomControls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:MainWindowViewModel />
+    </Window.DataContext>
     <Window.Resources>
-        <Style x:Key="PrimaryButtonStyle" TargetType="custom:CustomControl">
+        <Style x:Key="PrimaryButtonStyle" TargetType="custom:StylableControl" BasedOn="{StaticResource {x:Type custom:StylableControl}}">
             <Setter Property="Background" Value="Red"/>
             <Setter Property="BorderBrush" Value="#005A9E"/>
             <Setter Property="CornerRadius" Value="10"/>
@@ -19,37 +22,57 @@
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <Button x:Name="ClassicButton" Margin="10" Content="Classic Button"
-                    Click="Button_Click" />
+                    Command="{Binding ClickButtonCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource Self}}" />
             
             <!-- Kontrolka z domyślnym stylem -->
-            <custom:CustomControl x:Name="DefaultStyle"
-                                    MouseDown="Button_Click"
+            <custom:StylableControl x:Name="DefaultStyle"
+                                    Command="{Binding ClickButtonCommand}"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
                                     Content="Default Style" Width="200" Height="40"/>
 
             <!-- Kontrolka z niestandardowym stylem -->
-            <custom:CustomControl x:Name="PrimaryStyle"
-                                    MouseDown="Button_Click"
+            <custom:StylableControl x:Name="PrimaryStyle"
+                                    Command="{Binding ClickButtonCommand}"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
                                     Style="{StaticResource PrimaryButtonStyle}"
                                     Content="Custom Style"
-                                    Width="200"
-                                    Height="40"/>
+                                    Width="160"
+                                    Height="50"/>
 
             <!-- Kontrolka ze stanami -->
-            <custom:CustomControl x:Name="StylableControl"
-                MouseDown="Button_Click"
-                Content="Test" 
-                Width="200" 
-                Height="40">
-                <custom:CustomControl.States>
+            <custom:StylableControl x:Name="StylableControl"
+                Command="{Binding ClickButtonCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
+                Content="Test">
+                <custom:StylableControl.States>
                     <custom:ControlState Condition="IsMouseOver">
                         <custom:ControlState.StateStyle>
-                            <Style TargetType="custom:CustomControl">
+                            <Style TargetType="custom:StylableControl">
                                 <Setter Property="Background" Value="Yellow"/>
                             </Style>
                         </custom:ControlState.StateStyle>
                     </custom:ControlState>
-                </custom:CustomControl.States>
-            </custom:CustomControl>
+                </custom:StylableControl.States>
+            </custom:StylableControl>
+
+            <!--ToggleButton-->
+            <custom:StylableControl x:Name="ToggleButton"
+                                    Command="{Binding ToggleButtonCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
+                                    Margin="0,10,0,0"
+                                    Content="Toggle Me">
+                <custom:StylableControl.States>
+                    <custom:ControlState Condition="IsToggled">
+                        <custom:ControlState.StateStyle>
+                            <Style TargetType="custom:StylableControl">
+                                <Setter Property="Background" Value="MediumSeaGreen"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="BorderBrush" Value="DarkGreen"/>
+                            </Style>
+                        </custom:ControlState.StateStyle>
+                    </custom:ControlState>
+                </custom:StylableControl.States>
+            </custom:StylableControl>
         </StackPanel>
     </Grid>
 </Window>

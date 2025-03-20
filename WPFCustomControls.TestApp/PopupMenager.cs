@@ -9,7 +9,7 @@ namespace WPFCustomControls.TestApp
 {
     public static class PopupMenager
     {
-        public static void ShowPopup(Window owner, Point position, string message = "")
+        public static void ShowPopup(Point position, string message = "")
         {
             // Tworzymy nowe okno typu Popup
             Popup popup = new Popup
@@ -48,8 +48,8 @@ namespace WPFCustomControls.TestApp
                 Width = 160,
                 Height = 50,
                 Content = popupBorder,
-                Left = owner.Left + position.X,
-                Top = owner.Top + position.Y
+                Left = position.X,
+                Top = position.Y
             };
 
             popupWindow.Show();
