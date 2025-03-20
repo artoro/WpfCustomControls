@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:WpfCustomControls">
 
-    <Style TargetType="{x:Type local:StylableControl}">
+    <Style TargetType="{x:Type local:CustomControl}">
         <Setter Property="Background" Value="LightGray"/>
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="BorderBrush" Value="DarkGray"/>
@@ -12,7 +12,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type local:StylableControl}">
+                <ControlTemplate TargetType="{x:Type local:CustomControl}">
                     <Border
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"

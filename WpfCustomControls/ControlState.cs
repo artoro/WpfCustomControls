@@ -12,35 +12,24 @@ namespace WpfCustomControls
 
     public class ControlState : Freezable
     {
-        // Wymagane przez Freezable
-        protected override Freezable CreateInstanceCore()
-        {
-            return new ControlState();
-        }
-
-        public static readonly DependencyProperty ConditionPropertyNameProperty =
-            DependencyProperty.Register(
-                "ConditionPropertyName",
-                typeof(string),
-                typeof(ControlState));
-
-        public string ConditionPropertyName
-        {
-            get => (string)GetValue(ConditionPropertyNameProperty);
-            set => SetValue(ConditionPropertyNameProperty, value);
-        }
-
-        public static readonly DependencyProperty StateStyleProperty =
-            DependencyProperty.Register(
-                "StateStyle",
-                typeof(Style),
-                typeof(ControlState));
-
+        public static readonly DependencyProperty StateStyleProperty = DependencyProperty.Register(nameof(StateStyle), typeof(Style), typeof(ControlState));
+        
         public Style StateStyle
         {
             get => (Style)GetValue(StateStyleProperty);
             set => SetValue(StateStyleProperty, value);
         }
-    }
+        
 
+        public static readonly DependencyProperty ConditionProperty = DependencyProperty.Register(nameof(Condition), typeof(string), typeof(ControlState));
+        
+        public string Condition
+        {
+            get => (string)GetValue(ConditionProperty);
+            set => SetValue(ConditionProperty, value);
+        }
+
+
+        protected override Freezable CreateInstanceCore() => new ControlState();
+    }
 }

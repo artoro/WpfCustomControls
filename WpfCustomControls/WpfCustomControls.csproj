@@ -48,7 +48,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="StylableControl.cs" />
+    <Compile Include="RichContentControl.cs" />
+    <Compile Include="CustomControl.cs" />
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
