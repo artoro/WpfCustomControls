@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -99,6 +99,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WpfConverterControls\WpfConverterControls.csproj">
+      <Project>{26a5bdf4-cd57-458c-ab90-c0bb408ddf16}</Project>
+      <Name>WpfConverterControls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WpfCustomControls\WpfCustomControls.csproj">
       <Project>{6977f619-0c1e-4051-bfde-c823051ed6b5}</Project>
       <Name>WpfCustomControls</Name>

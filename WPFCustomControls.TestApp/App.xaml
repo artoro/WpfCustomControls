@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:WPFCustomControls.TestApp"
              xmlns:custom="clr-namespace:WpfCustomControls;assembly=WpfCustomControls"
+             xmlns:convert="clr-namespace:WpfConverterControls;assembly=WpfConverterControls"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <Style x:Key="GlobalButtonStyle" TargetType="custom:StylableControl">
@@ -10,6 +11,16 @@
             <Setter Property="Padding" Value="10"/>
             <Setter Property="Margin" Value="5"/>
         </Style>
-        
+
+        <Style x:Key="State1Style" TargetType="Button">
+            <Setter Property="Background" Value="Blue"/>
+        </Style>
+        <Style x:Key="State2Style" TargetType="Button">
+            <Setter Property="Background" Value="Yellow"/>
+        </Style>
+
+        <convert:StateToStyleConverter x:Key="StateToStyleConverter"
+                                 State1Style="{StaticResource State1Style}"
+                                 State2Style="{StaticResource State2Style}"/>
     </Application.Resources>
 </Application>

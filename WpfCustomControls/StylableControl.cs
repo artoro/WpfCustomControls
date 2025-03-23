@@ -29,8 +29,8 @@ namespace WpfCustomControls
         {
             States = new ObservableCollection<ControlState>();
             //Loaded += (s, e) => UpdateStyle();
-            Loaded += (s, e) => AttachViewModel();
-            States.CollectionChanged += (s, e) => UpdateStyle();
+            //Loaded += (s, e) => AttachViewModel();
+            //States.CollectionChanged += (s, e) => UpdateStyle();
         }
 
 

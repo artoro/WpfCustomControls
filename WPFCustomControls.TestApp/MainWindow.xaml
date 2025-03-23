@@ -55,6 +55,11 @@
                     </custom:ControlState>
                 </custom:StylableControl.States>
             </custom:StylableControl>
+            
+            <!--ConvertStyleButton-->
+            <Button Margin="10" Content="Dynamic"
+                Command="{Binding ToggleButtonCommand}"
+                Style="{Binding IsToggled, Converter={StaticResource StateToStyleConverter}}"/>
 
             <!--ToggleButton-->
             <custom:StylableControl x:Name="ToggleButton"
